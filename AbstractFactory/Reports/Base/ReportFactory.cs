@@ -2,5 +2,6 @@
 
 public interface IReportFactory
 {
-    byte[] GenerateReport();
+    IReportBody CreateReportBody();
+    IReportFormatter CreateReportFormatter();
 }

@@ -6,12 +6,6 @@ namespace AbstractFactory.Reports.Factories;
 
 public class HtmlChartFactory : IReportFactory
 {
-    private readonly ChartBody _tableBody = new();
-    private readonly HtmlFormatter _formatter = new();
-    
-    public byte[] GenerateReport()
-    {
-        _tableBody.BuildReportBody("Chart");
-        return _formatter.Format(_tableBody);
-    }
+    public IReportBody CreateReportBody() => new ChartBody();
+    public IReportFormatter CreateReportFormatter() => new HtmlFormatter();
 }

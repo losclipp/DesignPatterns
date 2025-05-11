@@ -6,12 +6,6 @@ namespace AbstractFactory.Reports.Factories;
 
 public class PdfChartFactory : IReportFactory
 {
-    private readonly ChartBody _tableBody = new();
-    private readonly PdfFormatter _formatter = new();
-    
-    public byte[] GenerateReport()
-    {
-        _tableBody.BuildReportBody("Chart");
-        return _formatter.Format(_tableBody);
-    }
+    public IReportBody CreateReportBody() => new ChartBody();
+    public IReportFormatter CreateReportFormatter() => new PdfFormatter();
 }
