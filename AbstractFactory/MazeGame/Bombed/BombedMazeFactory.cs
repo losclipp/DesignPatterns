@@ -4,9 +4,9 @@ namespace AbstractFactory.MazeGame.Bombed;
 
 public class BombedMazeFactory : IMazeFactory
 {
-    public Door CreateDoor(int firstRomId, int secondRoomId)
+    public Door CreateDoor(int firstRoomId, Direction firstDirection, int secondRoomId, Direction secondDirection)
     {
-        return new BombedDoor(firstRomId, secondRoomId);
+        return new BombedDoor(firstRoomId, firstDirection, secondRoomId, secondDirection);
     }
 
     public Room CreateRoom(int roomId)
@@ -14,8 +14,8 @@ public class BombedMazeFactory : IMazeFactory
         return new BombedRoom(roomId);
     }
 
-    public Wall CreateWall(int roomId)
+    public Wall CreateWall(int roomId, Direction direction)
     {
-        return new BombedWall(roomId);
+        return new BombedWall(roomId, direction);
     }
 }

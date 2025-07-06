@@ -4,14 +4,14 @@ namespace AbstractFactory.MazeGame.Bombed;
 
 public class BombedDoor : Door
 {
-    public BombedDoor(int firstRomId, int secondRoomId) 
-        :base(firstRomId, secondRoomId)
+    public BombedDoor(int firstRomId, Direction firstDirection, int secondRoomId, Direction secondDirection) 
+        :base(firstRomId, firstDirection, secondRoomId, secondDirection)
     {
         
     }
 
     public override void Describe()
     {
-        Console.WriteLine($"Bombed door for {firstRoomId} and {secondRoomId}");
+        Console.WriteLine($"Bombed door for {firstRoomId} with {firstSide} and {secondRoomId} with {secondSide}.");
     }
 }

@@ -36,15 +36,15 @@ public class MazeBuilder
         maze.Rooms.Add(_mazeFactory.CreateRoom(1));
         maze.Rooms.Add(_mazeFactory.CreateRoom(2));
         
-        maze.Doors.Add(_mazeFactory.CreateDoor(1,2));
+        maze.Doors.Add(_mazeFactory.CreateDoor(1, Direction.Left,2, Direction.Right));
         
-        maze.Walls.Add(_mazeFactory.CreateWall(1));
-        maze.Walls.Add(_mazeFactory.CreateWall(1));
-        maze.Walls.Add(_mazeFactory.CreateWall(1));
+        maze.Walls.Add(_mazeFactory.CreateWall(1, Direction.Up));
+        maze.Walls.Add(_mazeFactory.CreateWall(1, Direction.Down));
+        maze.Walls.Add(_mazeFactory.CreateWall(1, Direction.Right));
 
-        maze.Walls.Add(_mazeFactory.CreateWall(2));
-        maze.Walls.Add(_mazeFactory.CreateWall(2));
-        maze.Walls.Add(_mazeFactory.CreateWall(2));
+        maze.Walls.Add(_mazeFactory.CreateWall(2, Direction.Up));
+        maze.Walls.Add(_mazeFactory.CreateWall(2, Direction.Down));
+        maze.Walls.Add(_mazeFactory.CreateWall(2, Direction.Left));
         
         return maze;
     }

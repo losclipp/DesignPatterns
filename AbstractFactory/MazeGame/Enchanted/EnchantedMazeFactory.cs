@@ -4,9 +4,9 @@ namespace AbstractFactory.MazeGame.Enchanted;
 
 public class EnchantedMazeFactory :IMazeFactory
 {
-    public Door CreateDoor(int firstRomId, int secondRoomId)
+    public Door CreateDoor(int firstRoomId, Direction firstDirection, int secondRoomId, Direction secondDirection)
     {
-        return new EnchantedDoor(firstRomId, secondRoomId);
+        return new EnchantedDoor(firstRoomId, firstDirection, secondRoomId, secondDirection);
     }
 
     public Room CreateRoom(int roomId)
@@ -14,8 +14,8 @@ public class EnchantedMazeFactory :IMazeFactory
         return new EnchantedRoom(roomId);
     }
 
-    public Wall CreateWall(int roomId)
+    public Wall CreateWall(int roomId, Direction direction)
     {
-        return new EnchantedWall(roomId);
+        return new EnchantedWall(roomId, direction);
     }
 }

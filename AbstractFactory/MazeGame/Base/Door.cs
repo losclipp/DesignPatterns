@@ -1,9 +1,13 @@
 ﻿namespace AbstractFactory.MazeGame.Base;
 
-public abstract class Door(int firstRoomId, int secondRoomId) : IElementDescription
+public abstract class Door(int firstRoomId, Direction firstSide, int secondRoomId, Direction secondSide) : IElementDescription
 {
+    
     protected int firstRoomId = firstRoomId;
     protected int secondRoomId = secondRoomId;
+    
+    protected Direction firstSide = firstSide;
+    protected Direction secondSide = secondSide;
     public bool IsOpen { get; protected set; } = false;
 
     public void OpenDoor()
@@ -18,6 +22,6 @@ public abstract class Door(int firstRoomId, int secondRoomId) : IElementDescript
     
     public virtual void Describe()
     {
-        Console.WriteLine($"Usual Door {firstRoomId} {secondRoomId}");
+        Console.WriteLine($"Usual Door {firstRoomId} with {firstSide} and {secondRoomId} with {secondSide}");
     }
 }
