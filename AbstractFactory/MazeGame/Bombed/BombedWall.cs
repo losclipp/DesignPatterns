@@ -12,6 +12,6 @@ public class BombedWall : Wall
 
     public override void Describe()
     {
-        Console.WriteLine($"Bombed room {RoomId}.");
+        Console.WriteLine($"Bombed wall {RoomId}.");
     }
 }

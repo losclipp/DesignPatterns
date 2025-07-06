@@ -4,11 +4,11 @@ using AbstractFactory.MazeGame.Enchanted;
 
 namespace AbstractFactory.MazeGame;
 
-public class MazeFactory
+public class MazeBuilder
 {
     private readonly IMazeFactory _mazeFactory;
     
-    public MazeFactory(MazeType mazeType)
+    public MazeBuilder(MazeType mazeType)
     {
         switch (mazeType)
         {

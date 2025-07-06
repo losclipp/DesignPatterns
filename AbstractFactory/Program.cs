@@ -6,7 +6,7 @@ using AbstractFactory.MazeGame.Base;
 
 Console.WriteLine("Hello, World!");
 
-var mazeFactory = new MazeFactory(MazeType.Bombed);
+var mazeFactory = new MazeBuilder(MazeType.Bombed);
 var maze = mazeFactory.CreateGame();
 
 

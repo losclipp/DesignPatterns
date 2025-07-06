@@ -12,6 +12,6 @@ public class EnchantedWall : Wall
 
     public override void Describe()
     {
-        Console.WriteLine($"Enchanted room {RoomId}.");
+        Console.WriteLine($"Enchanted wall {RoomId}.");
     }
 }
