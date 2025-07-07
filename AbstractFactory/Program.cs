@@ -1,31 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using AbstractFactory.MazeGame;
-using AbstractFactory.MazeGame.Base;
+using AbstractFactory.Logger.Base.Enums;
+using AbstractFactory.Logger.Base.Factories;
 
-
-Console.WriteLine("Hello, World!");
-
-var mazeFactory = new MazeBuilder(MazeType.Bombed);
-var maze = mazeFactory.CreateGame();
-
-
-Console.WriteLine("Rooms");
-foreach (var room in maze.Rooms)
-{
-    room.Describe();
-}
-
-Console.WriteLine("Doors");
-foreach (var room in maze.Doors)
-{
-    room.Describe();
-}
-
-Console.WriteLine("Walls");
-foreach (var room in maze.Walls)
-{
-    room.Describe();
-}
+var logger = LoggerFactory.CreateLogger(Output.File, Format.Json);
+await logger.LogAsync("User logged in");
+logger.Dispose();
 
 Console.ReadLine();
