@@ -4,11 +4,11 @@ using AbstractFactory.Exporter;
 using AbstractFactory.Exporter.Abstract.Enum;
 
 var factoryLoader = new FactoryLoader();
-var Factory = factoryLoader.GetExporterFactory(Format.XML);
+var factory = factoryLoader.GetExporterFactory(Format.XML);
 
 var data = "message";
-var validator = Factory.CreateValidator();
-var exporter = Factory.CreateExporter();
+var validator = factory.CreateValidator();
+var exporter = factory.CreateExporter();
 
 validator.Validate(data);
 await exporter.Export(data);
