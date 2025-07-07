@@ -1,4 +1,4 @@
-﻿namespace AbstractFactory.Logger.Base;
+﻿namespace AbstractFactory.Logger.Abstraction;
 
 public interface ILogger : IDisposable
 {

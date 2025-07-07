@@ -1,10 +1,11 @@
-﻿using AbstractFactory.Logger.Base.Enums;
+﻿using AbstractFactory.Logger.Abstraction;
+using AbstractFactory.Logger.Abstraction.Enums;
 using AbstractFactory.Logger.Formating;
 using AbstractFactory.Logger.Outputs;
 
-namespace AbstractFactory.Logger.Base.Factories;
+namespace AbstractFactory.Logger.Factories;
 
-public class LoggerFactory
+public static class LoggerFactory
 {
     public static ILogger CreateLogger(Output output, Format format)
     {
@@ -47,6 +48,6 @@ public class LoggerFactory
                 throw new ArgumentOutOfRangeException();
             }
         }
-        return new Logger(formatter, outputter);
+        return new AbstractFactory.Logger.Factories.Logger(formatter, outputter);
     }
 }

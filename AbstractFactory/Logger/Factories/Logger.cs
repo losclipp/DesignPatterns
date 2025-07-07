@@ -1,7 +1,8 @@
-﻿using AbstractFactory.Logger.Formating;
+﻿using AbstractFactory.Logger.Abstraction;
+using AbstractFactory.Logger.Formating;
 using AbstractFactory.Logger.Outputs;
 
-namespace AbstractFactory.Logger.Base.Factories;
+namespace AbstractFactory.Logger.Factories;
 
 public class Logger : ILogger, IDisposable
 {
