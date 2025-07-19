@@ -1,15 +1,18 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
-using Builder.Computer;
+using Builder.User;
 
-var builder = new ComputerBuilder();
-var computer = builder
-    .AddCPU(2600)
-    .AddRAM(4)
-    .AddStorage(2)
-    .AddGPU("Nvidia")
+var builder = new UserBuilder();
+
+var user = builder
+    .AddName("John")
+    .AddSurname("Smith")
+    .AddAge(33)
+    .AddEmail("someemail@gmail.com")
+    .AddPhone("+73192031")
     .Build();
-computer.Print();
+
+Console.WriteLine(user);
 
 Console.WriteLine("Hello, World!");
