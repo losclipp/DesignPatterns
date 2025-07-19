@@ -1,18 +1,18 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
+using Builder.SQL;
 using Builder.User;
 
-var builder = new UserBuilder();
+var builder = new SQLQueryBuilder();
 
-var user = builder
-    .AddName("John")
-    .AddSurname("Smith")
-    .AddAge(33)
-    .AddEmail("someemail@gmail.com")
-    .AddPhone("+73192031")
+var query = builder
+    .Select("name, age")
+    .From("users")
+    .Where("age > 18")
+    .OrderBy("name")
     .Build();
 
-Console.WriteLine(user);
+Console.WriteLine(query);
 
 Console.WriteLine("Hello, World!");
