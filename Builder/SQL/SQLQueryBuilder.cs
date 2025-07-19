@@ -98,4 +98,12 @@ public class SQLQueryBuilder
         }
         return result.ToString();
     }
+
+    public void Reset()
+    {
+        _select = string.Empty;
+        _from = string.Empty;
+        _where = string.Empty;
+        _orderBy = string.Empty;
+    }
 }
