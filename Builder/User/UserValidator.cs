@@ -18,17 +18,16 @@ public class UserValidator : AbstractValidator<User>
             .Matches(@"^[A-Za-z]+$")
                 .WithMessage("Only Alphabetical characters are allowed.");
         RuleFor(x => x.Age)
-            .GreaterThan(0)
+             .GreaterThan(0)
                 .WithMessage("Age must be greater than 0.");
         RuleFor(x => x.Email)
-            .NotEmpty()
-                .WithMessage("Email is required.")
             .EmailAddress()
+            .When( x => !string.IsNullOrWhiteSpace(x.Email))
                 .WithMessage("Invalid email address.");
         RuleFor(x => x.Phone)
-            .NotEmpty()
-            .WithMessage("Phone is required.")
-            .Matches(@"^\+?[0-9]+$");
+            .Matches(@"^\+?[0-9]+$")
+            .When(x => !string.IsNullOrWhiteSpace(x.Phone))
+                .WithMessage("Invalid phone number.");
 
     }
 }
