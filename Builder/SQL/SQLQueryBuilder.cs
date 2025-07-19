@@ -79,6 +79,11 @@ public class SQLQueryBuilder
 
     public string Build()
     {
+        if (string.IsNullOrWhiteSpace(_select)) 
+            throw new InvalidOperationException("SELECT is required.");
+        if (string.IsNullOrWhiteSpace(_from)) 
+            throw new InvalidOperationException("FROM is required.");
+        
         var result = new StringBuilder();
         
         result.Append($"SELECT {_select} FROM {_from} ");
