@@ -1,4 +1,4 @@
-﻿namespace Prototype.PrototypeRegistry;
+﻿namespace Prototype.Car;
 
 public class PrototypeCarRegistry
 {
@@ -11,19 +11,17 @@ public class PrototypeCarRegistry
             throw new ArgumentNullException("car");
         }
 
-        if (_cars.ContainsKey(car.Model))
+        if (!_cars.TryAdd(car.Brand, car))
         {
             throw new ArgumentException("Car already exists");
         }
-        
-        _cars.Add(car.Model, car);
     }
 
-    public Car GetCarByModel(string model)
+    public Car GetCarByBrand(string brand)
     {
-        if (!_cars.TryGetValue(model, out var outCar))
+        if (!_cars.TryGetValue(brand, out var outCar))
         {
-            throw new ArgumentException("Model not exists");
+            throw new ArgumentException("Brand not exists");
         }
         return outCar.Clone();
     }
