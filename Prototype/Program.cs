@@ -1,28 +1,31 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
-using Prototype.Car;
+using System.Drawing;
+using Prototype.PrototypeRegistry;
 
-var car = new Car
+var carRegistry = new PrototypeCarRegistry();
+carRegistry.AddItem(new Car()
 {
-    Brand = "Open",
-    Model = "Astra",
+    Model = "Opel",
     Year = 2000,
-    Owner = new Person()
-    {
-        Name = "John",
-        Surname= "Smith",
-        Age = 35
-    }
+    Color = "Blue",
+});
+carRegistry.AddItem(new Car()
+{
+    Model = "Bmw",
+    Year = 2010,
+    Color = "Black",
+});
 
-};
+carRegistry.GetCarByModel("Opel");
+
+var car1 = carRegistry.GetCarByModel("Opel");
+var car2 = carRegistry.GetCarByModel("Opel");
+car1.Color = "Red";
 
 
-
-var car2 = car.Clone();
-
-car.Owner.Surname = "Wick";
-
-Console.WriteLine(car.ToString());
+Console.WriteLine(car1.ToString());
 Console.WriteLine(car2.ToString());
+
 Console.WriteLine("Hello, World!");
