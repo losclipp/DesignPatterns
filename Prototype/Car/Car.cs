@@ -6,26 +6,23 @@ public class Car: IClone<Car>
     public string Model { get; set; }
     public int Year { get; set; }
 
-    public Car()
-    {
-        
-    }
-    
-    public Car(Car car)
-    {
-        Brand = car.Brand;
-        Model = car.Model;
-        Year = car.Year;
-    }
+    public Person? Owner { get; set; }
 
     public override string ToString()
     {
-        return $"Brand: {Brand}, Model: {Model}, Year: {Year}";
+        var ownerString = Owner == null ? "No Owner" : Owner.ToString();
+        return $"Brand: {Brand}, Model: {Model}, Year: {Year}; Owner: {ownerString}";
     }
 
 
     public Car Clone()
     {
-        return new Car(this);
+        return new Car
+        {
+            Brand = Brand,
+            Model = Model,
+            Year = Year,
+            Owner = Owner?.Clone()
+        };
     }
 }
