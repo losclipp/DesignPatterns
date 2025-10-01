@@ -1,50 +1,31 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using Adapter.Payment.Adaptees;
-using Adapter.Payment.Adaptors;
+using Adapter.HttpClient;
 
-var farStripeAdapter = new FastStripeAdapter(new FastStripe());
-try
-{
-    Console.WriteLine($"result id1: {(await farStripeAdapter.ChargeAsync(0.4m, "USD", "1241241234"))}");
-}
-catch (Exception ex)
-{
-    Console.WriteLine(ex);
-}
+var client = new AdaptedHttp();
 
 try
 {
-    Console.WriteLine($"result id2: {(await farStripeAdapter.ChargeAsync(1m, "USD", "000"))}");
+    var result1 = await client.GetAsync("");
+    Console.WriteLine(result1);
 }
 catch (Exception ex)
 {
-    Console.WriteLine(ex);
+    Console.WriteLine(ex.Message);
 }
 
-Console.WriteLine( $"result id3: {(await farStripeAdapter.ChargeAsync(1m, "USD", "1423344"))}");
-
-var payFriendAdapter = new PayFriendAdapter(new PayFriend());
+var result2 = await client.GetAsync("asdfaf");
+Console.WriteLine(result2);
 
 try
 {
-    Console.WriteLine($"result id4: {(await payFriendAdapter.ChargeAsync(0.4m, "USD", "1241241234"))}");
+    var result3 = await client.GetAsync("asdfaf", 100);
 }
 catch (Exception ex)
 {
-    Console.WriteLine(ex);
+    Console.WriteLine(ex.Message);
 }
 
-try
-{
-    Console.WriteLine($"result id5: {(await payFriendAdapter.ChargeAsync(1m, "USD", "000"))}");
-}
-catch (Exception ex)
-{
-    Console.WriteLine(ex);
-}
-
-Console.WriteLine( $"result id6: {(await payFriendAdapter.ChargeAsync(1m, "USD", "1423344"))}");
 
 
 Console.WriteLine("Hello, World!");
